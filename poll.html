@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>poll</title>
+    <link rel="stylesheet" href="poll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="poll">
+        <h3> Население вашего города?</h3>
+        <ul>
+            <li class="option">
+                <span class="counter_meter" style="width: 28%"></span>
+                <button>
+                        Более 1 млн
+                    <span class="counter">23</span>
+                </button>
+                <span class="counter_pct">28%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 19%"></span>
+                <button>
+                        500 000-1 млн
+                    <span class="counter">15</span>
+                </button>
+                <span class="counter_pct">19%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 12%"></span>
+                <button>
+                        100 000-500 000
+                    <span class="counter">10</span>
+                </button>
+                <span class="counter_pct">12%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 10%"></span>
+                <button>
+                        50 000-100 000
+                    <span class="counter">8</span>
+                </button>
+                <span class="counter_pct">10%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 15%"></span>
+                <button>
+                        10 000-50 000
+                    <span class="counter">12</span>
+                </button>
+                <span class="counter_pct">15%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 13%"></span>
+                <button>
+                        Менее 10 000
+                    <span class="counter">10</span>
+                </button>
+                <span class="counter_pct">13%</span>
+            </li>
+            <li class="option">
+                <span class="counter_meter" style="width: 3%"></span>
+                <button>
+                        Живу в посёлке (деревне)
+                    <span class="counter">2</span>
+                </button>
+                <span class="counter_pct">3%</span>
+            </li>
+        </ul>
+        <footer>
+            Проголосовали
+            <span class="counter_all">
+                <b>80</b>
+                человек
+            </span>
+        </footer>
+    </div>
+
+    <script src="jQ/jquery-3.6.3.min.js"></script>
+    <script src="PollOption.js"></script>
+    <script src="Poll.js"></script>
+
+    <script>
+
+        let polls = Poll.create();
+
+        console.log(polls);
+
+    </script>
+</body>
+</html>

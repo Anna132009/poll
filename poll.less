@@ -1,0 +1,115 @@
+body {
+  min-height: 100vh;
+  display: flex;
+
+  .poll {
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
+    background: linear-gradient(125deg, #d93725 0%, #d99830 80%);
+    padding: 20px;
+    color: white;
+    font-size: 15px;
+
+    &.show_results {
+      .counter_meter, .counter, .counter_pct {
+        visibility: visible !important;
+      }
+    }
+
+    h3 {
+      font-size: 29px;
+      font-weight: 700;
+      text-align: center;
+      padding: 0 50px;
+    }
+
+    ul {
+      padding: 0;
+      font-size: 14px;
+
+      .option {
+        list-style: none;
+        border-radius: 5px;
+        background-color: rgba(255, 165, 0, 0.5);
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden;
+
+        .counter_meter {
+          visibility: hidden;
+          display: block;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          background-color: rgba(249, 197, 21, 0.28);
+          transition-property: width;
+          transition-duration: 0.5s;
+        }
+
+        button {
+          width: 100%;
+          background-color: transparent;
+          border: none;
+          color: white;
+          font-size: 14px;
+          padding: 11px 10px;
+          cursor: pointer;
+          outline: none;
+          text-align: left;
+
+          &:hover {
+            background-color: rgba(251, 121, 58, 0.4);
+            transition: 0.5s;
+          }
+
+          &[disabled] {
+            cursor: default;
+            background-color: transparent;
+          }
+
+          .counter {
+            margin-left: 10px;
+            opacity: 0.44;
+            visibility: hidden;
+          }
+        }
+
+        &.your_voice {
+          .counter_pct:before {
+            content: '\2713';
+            margin-right: 5px;
+          }
+        }
+
+        &.leader {
+          .counter_meter {
+            background-color: rgba(249, 197, 21, 0.6);
+          }
+        }
+
+        .counter_pct {
+          display: flex;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding-right: 10px;
+          align-items: center;
+          font-weight: 600;
+          font-size: 15px;
+          visibility: hidden;
+        }
+      }
+    }
+
+    footer {
+      text-align: center;
+
+      .counter_all {
+
+      }
+    }
+  }
+}
+
