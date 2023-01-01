@@ -1,4 +1,5 @@
 
+
 class Poll
 {
     /**
@@ -86,7 +87,9 @@ class Poll
 
         let counter_all = array_sum(counters);
 
-        function declOfNum(number, titles) {
+        /** Обявление функции внутри другой функции без помещения ее в переменную плохая практика, исправил */
+        let $declOfNum = (number, titles) =>
+        {
             /** @link https://realadmin.ru/coding/sklonenie-na-javascript.html **/
 
             number = Math.abs(number) % 100;
@@ -100,9 +103,9 @@ class Poll
             if (number1 === 1) { return titles[0]; }
 
             return titles[2];
-        }
+        };
 
-        let word_person = declOfNum(counter_all, ['человек', 'человека', 'человек']);
+        let word_person = $declOfNum(counter_all, ['человек', 'человека', 'человек']);
 
         this.$context.find('.counter_all').html(`<b>${counter_all}</b> ${word_person}`);
     }

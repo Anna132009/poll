@@ -89,7 +89,13 @@
 
         let polls = Poll.create();
 
-        console.log(polls);
+        let poll = polls[0];
+
+        poll.select(1);
+		poll.select(2);
+		poll.select(3);
+        // FIXME в результате выбрано несколько вариантов, а должен быть выбрать только первый, тоесть игнорируется
+        // параметр disabled а не должен
 
     </script>
 </body>
