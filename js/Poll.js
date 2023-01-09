@@ -35,17 +35,22 @@ class Poll
 
     select(index_poll_option)
     {
-        this.show_results();
+		/**
+		 * @type {PollOption}
+		 */
+		let poll_option = this.poll_options[index_poll_option];
+
+		if (poll_option.isDisabled()) {
+		    return;
+		}
+
+		this.show_results();
 
         this.poll_options.forEach((/** PollOption */ poll_option) =>
         {
             poll_option.makeDisabled();
         });
 
-        /**
-         * @type {PollOption}
-         */
-        let poll_option = this.poll_options[index_poll_option];
 
         poll_option.makeYourVoice();
 
@@ -148,7 +153,10 @@ class Poll
         poll_option_with_max_counter.makeLeader();
     }
 
-    static create()
+	/**
+	 * @return {Poll[]}
+	 */
+	static create()
     {
         let $polls = $('.poll');
 
