@@ -17,6 +17,13 @@ class PollOption
         });
     }
 
+    isDisabled()
+    {
+        let disabled = this.$context.find('button').attr('disabled');
+
+        return (disabled);
+    }
+
     makeDisabled()
     {
         this.$context.find('button').attr('disabled', true);

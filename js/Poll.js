@@ -14,7 +14,7 @@ class Poll
         {
             poll_option.$context.on(PollOption.EVENT_SELECT, (e, index) =>
             {
-                this.select(index);
+                 this.select(index);
             });
 
             poll_option.$context.on(PollOption.EVENT_CHANGE_COUNTER, () =>
@@ -34,17 +34,23 @@ class Poll
 
     select(index_poll_option)
     {
-        this.show_results();
-
-        this.poll_options.forEach((/** PollOption */ poll_option) =>
-        {
-            poll_option.makeDisabled();
-        });
-
         /**
          * @type {PollOption}
          */
         let poll_option = this.poll_options[index_poll_option];
+
+        if (poll_option.isDisabled()) {
+
+            return;
+        }
+
+        this.show_results();
+
+        this.poll_options.forEach((/** PollOption */ poll_option) =>
+        {
+            poll_option.makeDisabled()
+
+        });
 
         poll_option.makeYourVoice();
 
@@ -86,7 +92,8 @@ class Poll
 
         let counter_all = array_sum(counters);
 
-        function declOfNum(number, titles) {
+        let $declOfNum = (number, titles) =>
+        {
             /** @link https://realadmin.ru/coding/sklonenie-na-javascript.html **/
 
             number = Math.abs(number) % 100;
@@ -100,9 +107,9 @@ class Poll
             if (number1 === 1) { return titles[0]; }
 
             return titles[2];
-        }
+        };
 
-        let word_person = declOfNum(counter_all, ['человек', 'человека', 'человек']);
+        let word_person = $declOfNum(counter_all, ['человек', 'человека', 'человек']);
 
         this.$context.find('.counter_all').html(`<b>${counter_all}</b> ${word_person}`);
     }
